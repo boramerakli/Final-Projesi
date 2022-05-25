@@ -25,16 +25,14 @@ Gerekliışıkdonanımıçalışmayanaraçkullanmak=196
 Abartıegzozveyacamfilmikullanmak=427
 Araçcinsindebulundurulmasızorunlugereçleribulundurmamak=196
 
-
-
 if  (ceza=="Hurdaya çıkarılan aracın işlemlerini yapmamak"):
-    print("20/1-a/1 Ceza maddesi gereğince hurdaya çıkarılan aracın işlemleri yapılmadığı için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödeme uygulanacaktırsa {}₺'ye indirim uygulanacaktır.".format(Hurdayaçıkarılanaracınişlemleriniyapmamak,indirim(Hurdayaçıkarılanaracınişlemleriniyapmamak))) 
+    print("20/1-a/1 Ceza maddesi gereğince hurdaya çıkarılan aracın işlemleri yapılmadığı için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Hurdayaçıkarılanaracınişlemleriniyapmamak,indirim(Hurdayaçıkarılanaracınişlemleriniyapmamak))) 
 
 elif (ceza=="Sattığı aracı ilgili kurumlara bildirmemek"):
-    print("20/1-d Ceza maddesi gereğince satılan araç ilgili kurumlara bildirilmediği için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödeme uygulanacaktırsa {}₺'ye indirim uygulanacaktır.".format(Sattığıaracıilgilikurumlarabildirmemek,indirim(Sattığıaracıilgilikurumlarabildirmemek)))  
+    print("20/1-d Ceza maddesi gereğince satılan araç ilgili kurumlara bildirilmediği için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Sattığıaracıilgilikurumlarabildirmemek,indirim(Sattığıaracıilgilikurumlarabildirmemek)))  
 
 elif (ceza=="İhaleden alınan araçlarda gerekli bilgileri vermemek"):
-    print("20/1-d-8 Ceza maddesi gereğince ihaleden alınan araçlarda gerekli bilgiler verilmediği için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödeme uygulanacaktırsa {}₺'ye indirim uygulanacaktır.".format(İhaledenalınanaraçlardagereklibilgilerivermemek,indirim(İhaledenalınanaraçlardagereklibilgilerivermemek)))
+    print("20/1-d-8 Ceza maddesi gereğince ihaleden alınan araçlarda gerekli bilgiler verilmediği için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(İhaledenalınanaraçlardagereklibilgilerivermemek,indirim(İhaledenalınanaraçlardagereklibilgilerivermemek)))
 
 elif (ceza=="Tescil plakasız araç kullanmak"):
     print("21/1 Ceza maddesi gereğince tescil plakasız araç kullanıldığı için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Tescilplakasızaraçkullanmak,indirim(Tescilplakasızaraçkullanmak)))
