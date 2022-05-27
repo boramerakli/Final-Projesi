@@ -1,6 +1,18 @@
 def indirim(a):
     return a-(a*0.25) 
 
+def hizcezasi():
+    hizsiniri=int(input("Hız sınırını giriniz: "))
+    hiz=int(input("Hızı giriniz: "))
+    if (hizsiniri+(hizsiniri*0.10))>hiz :
+        return print("Ceza uygulanmasını gerektirecek bir durum yoktur.")
+    elif (hizsiniri+(hizsiniri*0.10))<hiz<=(hizsiniri+(hizsiniri*0.30)): 
+        return print("51/2-a Ceza maddesi gereğince Hız sınırını %10 ile %30 arasında geçtiği için 427₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse 320.25₺'ye indirim uygulanacaktır.")
+    elif (hizsiniri+(hizsiniri*0.30))<hiz<=(hizsiniri+(hizsiniri*0.50)):
+        return print("51/2-b Ceza maddesi gereğince Hız sınırını %30 ile %50 arasında geçtiği için 888₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse 666₺'ye indirim uygulanacaktır.")
+    elif (hizsiniri+(hizsiniri*0.50))<hiz:
+        return print("51/2-c Ceza maddesi gereğince Hız sınırını %50’den fazla geçtiği için 1823₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse 1367.25₺'ye indirim uygulanacaktır.")
+
 ceza = input("İşlenen cezayı giriniz: ")
 
 Hurdayaçıkarılanaracınişlemleriniyapmamak=427
@@ -46,6 +58,15 @@ Süreklisolşeridikullanmak=427
 Emniyetşeridinikullanmak=1823
 makasatmak=1823
 Tersyöndearaçkullanmak=1823
+Hayvansürülerinintaşıtyolunaçıkmasınıengellememek=427
+Polisindurihtarınauymamak=427
+Kırımızıışıktageçmek=427
+Trafiklevhalarınauymamak=196
+Trafikgüvenliğinitehlikeyedüşürmek=196
+Alkollüaraçkullanmak=1823
+Uyuşturucumaddekullanıparaçkullanmak=9411
+Alkolmetreyeüflememek=5224
+Ticariaraçkullanmasürelerineuymamak=196
 
 if  (ceza=="Hurdaya çıkarılan aracın işlemlerini yapmamak"):
     print("20/1-a/1 Ceza maddesi gereğince hurdaya çıkarılan aracın işlemleri yapılmadığı için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Hurdayaçıkarılanaracınişlemleriniyapmamak,indirim(Hurdayaçıkarılanaracınişlemleriniyapmamak))) 
@@ -175,3 +196,35 @@ elif (ceza=="Ardı ardına tehlikeli şerit değiştirmek (makas atmak)"):
 
 elif (ceza=="Ters yönde araç kullanmak"):
     print("46/2-h Ceza maddesi gereğince ters yönde araç kullanıldığı için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Tersyöndearaçkullanmak,indirim(Tersyöndearaçkullanmak)))
+
+elif (ceza=="Hayvan sürülerinin taşıt yoluna çıkmasını engellememek"):
+    print("46/3 Ceza maddesi gereğince hayvan sürülerinin taşıt yoluna çıkmasının engellendiği için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Hayvansürülerinintaşıtyolunaçıkmasınıengellememek,indirim(Hayvansürülerinintaşıtyolunaçıkmasınıengellememek)))
+
+elif (ceza=="Polisin dur ihtarına uymamak"):
+    print("47/1-a Ceza maddesi gereğince polisin dur ihtarına uyulmadığı için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Polisindurihtarınauymamak,indirim(Polisindurihtarınauymamak)))
+
+elif (ceza=="Kırımızı ışıkta geçmek"):
+    print("47/1-b Ceza maddesi gereğince kırımızı ışıkta geçildiği için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Kırımızıışıktageçmek,indirim(Kırımızıışıktageçmek)))
+
+elif (ceza=="Trafik levhalarına uymamak"):
+    print("47/1-c Ceza maddesi gereğince trafik levhalarına uyulmadığı için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Trafiklevhalarınauymamak,indirim(Trafiklevhalarınauymamak)))
+
+elif (ceza=="Trafik güvenliğini tehlikeye düşürmek"):
+    print("47/1-d Ceza maddesi gereğince trafik güvenliğini tehlikeye soktuğu gerekçesiyle {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Trafikgüvenliğinitehlikeyedüşürmek,indirim(Trafikgüvenliğinitehlikeyedüşürmek)))
+
+elif (ceza=="Alkollü araç kullanmak"):
+    print("48/5 Ceza maddesi gereğince alkollü araç kullanıldığı için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Alkollüaraçkullanmak,indirim(Alkollüaraçkullanmak)))
+
+elif (ceza=="Uyuşturucu madde kullanıp araç kullanmak"):
+    print("48/8 Ceza maddesi gereğince uyuşturucu madde kullanıp araç kullanıldığı için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Uyuşturucumaddekullanıparaçkullanmak,indirim(Uyuşturucumaddekullanıparaçkullanmak)))
+
+elif (ceza=="Alkolmetreye üflememek"):
+    print("48/9 Ceza maddesi gereğince alkolmetreye üflemeyi reddettiği için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Alkolmetreyeüflememek,indirim(Alkolmetreyeüflememek)))
+
+elif (ceza=="Ticari araç kullanma sürelerine uymamak"):
+    print("49/3 Ceza maddesi gereğince ticari araç kullanma sürelerine uymadığı için {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(Ticariaraçkullanmasürelerineuymamak,indirim(Ticariaraçkullanmasürelerineuymamak)))
+
+elif (ceza=="Hız cezası"):
+    hizcezasi()
+
+
