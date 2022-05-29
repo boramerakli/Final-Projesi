@@ -1,6 +1,3 @@
-from matplotlib.pyplot import prism
-
-
 def indirim(a):
     return a-(a*0.25) 
 
