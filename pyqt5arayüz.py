@@ -147,4 +147,8 @@ class Ui_dialog(object):
         self.label.setText(_translate("dialog", " LÜTFEN TARİH SEÇİNİZ ;"))
         self.label_3.setText(_translate("dialog", "HIZ SINIRI ;"))
         self.label_2.setText(_translate("dialog", "UYGULANAN HIZ ;"))
-        self.pushButton_2.setText(_translate("dialog", "ONAYLA")) 
+        self.pushButton_2.setText(_translate("dialog", "ONAYLA"))
+        plakalar = {"KEREM OZBAL": "34 TO 2015", "ALPER YUKSEL" : "16 NOG 95", "RAGIP DUNDAR" : "06 HBT 11",
+                        "ADNAN MUTU": "06 ANK 06", "ISMAIL GUNDUZ" : "31 A 0001", "TEOMAN ARSLAN" : "17 CNK 17",
+                        "MERVE ARIK": "34 BUF 80", "TUBAĞ SEZGİN": "16 UCB 25", "ALPEREN ÇAKICI" : "34 TS 061",
+                        "ŞEVVAL YILDIZ": "34 MEH 52"}
