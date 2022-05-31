@@ -180,7 +180,7 @@ class Ui_dialog(object):
             _, frame = cap.read()   # Görüntüyü kare kare kameradan okuyacak.
 
             metin = pytesseract.image_to_string(Image.fromarray(frame))  # okunan yazıyı kaydeden fonksiyon 
-
+             #bütün plakalara ve ait olduğu kişileri bulamadığımızdan dolayı kendi sözlüğümüzü oluşturduk.
             plakalar = {"KEREM OZBAL": "34 TO 2015", "ALPER YUKSEL" : "16 NOG 95", "RAGIP DUNDAR" : "06 HBT 11",
                         "ADNAN MUTU": "06 ANK 06", "ISMAIL GUNDUZ" : "31 A 0001", "TEOMAN ARSLAN" : "17 CNK 17",
                         "MERVE ARIK": "34 BUF 80", "TUBAĞ SEZGİN": "16 UCB 25", "ALPEREN ÇAKICI" : "34 TS 061",
