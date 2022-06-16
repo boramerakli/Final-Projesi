@@ -1,6 +1,6 @@
 import pytesseract
 import cv2
-dosya_yolu = "C:\\Users\\Bora\\Downloads\\lfs-plaka.png"
+dosya_yolu = "C:\\Users\\Bora\\Downloads\\cekilenplaka.jpg"
 pytesseract.pytesseract.tesseract_cmd = "C:\\Users\\Bora\\AppData\\Local\\Programs\\Tesseract-OCR\\tesseract.exe"
 plaka_fotografi = cv2.imread(dosya_yolu)
 plaka = pytesseract.image_to_string(plaka_fotografi)
