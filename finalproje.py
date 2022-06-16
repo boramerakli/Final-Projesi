@@ -1,12 +1,8 @@
 import pytesseract
 import cv2
-
 dosya_yolu = "C:\\Users\\Bora\\Downloads\\lfs-plaka.png"
-
 pytesseract.pytesseract.tesseract_cmd = "C:\\Users\\Bora\\AppData\\Local\\Programs\\Tesseract-OCR\\tesseract.exe"
-
 plaka_fotografi = cv2.imread(dosya_yolu)
-
 plaka = pytesseract.image_to_string(plaka_fotografi)
 
 def indirim(a):
@@ -625,4 +621,3 @@ elif (ceza=="Belediyeden izin alınan bölge dışında yolcu taşımak"):
 
 elif (ceza=="Belediyeden alınan izin bitmesine rağmen yolcu taşımak"):
     print("Ek-2/5 Ceza maddesi gereğince belediyeden izin alınan izin bitmesine rağmen yolcu taşıdığı için {} Plakalı araç sahibine {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(plaka,Belediyedenalinanizinbitmesineragmenyolcutasima,indirim(Belediyedenalinanizinbitmesineragmenyolcutasima)))
-
