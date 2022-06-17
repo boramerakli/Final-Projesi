@@ -36,8 +36,8 @@ görüntü işleme için kullandığımız OpenCV kütüphanemizde projemizde ye
 ## Gerekli kütüphaneler
 #
 ##### PyQt5
-##### pytesseract
-##### cv2
+##### Pytesseract
+##### Opencv
 
 
 ## Ceza tespit sistemi nasıl çalışır?
