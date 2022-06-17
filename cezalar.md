@@ -1,14 +1,25 @@
 1-Hurdaya çıkarılan aracın işlemlerini yapmamak
+
 2-Sattığı aracı ilgili kurumlara bildirmemek
+
 3-İhaleden alınan araçlarda gerekli bilgileri vermemek
+
 4-Tescil plakasız araç kullanmak
+
 5-Hurda belgeli araç kullanmak
+
 6-Araçta ruhsat bulundurmamak
+
 7-Plakayı yanlış yere takmak
+
 8-App plaka kullanmak
+
 9-İzin verilen sürede uygun plaka takmamak
+
 10-Araç cinsine göre belirlenen sayıda plaka takmamak 
+
 11-Plaka üzerinde değişiklik yapmak
+
 12-Plakasız araç kullanmak
 13-Başka aracın plakasını kullanmak
 14-Sahte plaka takmak
