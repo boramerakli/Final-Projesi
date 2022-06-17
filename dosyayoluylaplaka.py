@@ -1,28 +1,30 @@
-import pytesseract
-import cv2
-dosya_yolu = "C:\\Users\\Bora\\Downloads\\cekilenplaka.jpg"
-pytesseract.pytesseract.tesseract_cmd = "C:\\Users\\Bora\\AppData\\Local\\Programs\\Tesseract-OCR\\tesseract.exe"
-plaka_fotografi = cv2.imread(dosya_yolu)
-plaka = pytesseract.image_to_string(plaka_fotografi)
+# BU PROJEYİ ARAYÜZ İLE YAPILAN PROJEMİZDE TÜRKİYE'DEKİ BÜTÜN PLAKALAR VE ARAÇ SAHİPLERİNİN İSİMLERİ GİBİ CEZA YAZILIRKEN KULLANILAN VERİLERE ERİŞİMİMİZ OLMADIĞI VE SADECE TANIMLADIĞIMIZ PLAKALARI OKUTABİLDİĞİMİZ İÇİN ALTERNATİF OLARAK PLAKAYA YAZILAN BÜTÜN CEZALARIN BULUNDUĞU, YÜKLÜ FOTOĞRAFLARIN DOSYA YOLUNU BELİRTEREK KULLANDIĞIMIZ BİR ALTERNATİF CEZA SİSTEMİDİR.
 
-def indirim(a):
-    return a-(a*0.25) 
+import pytesseract                                                          # İmport komutu ile modüllerimizi projemizde kullanabilmek için dahil ediyoruz.
+import cv2
+dosya_yolu = "C:\\Users\\Bora\\Downloads\\cekilenplaka.jpg"                 # Ceza yazılacak plakayı yazdırabilmek için tırnaklar içerisine string şeklinde dosya yolunu değişken şeklinde tanımlıyoruz.(Arka arkaya 2 tane \ kullanılması şart aski halde hata verip çalışmıyor)
+pytesseract.pytesseract.tesseract_cmd = "C:\\Users\\Bora\\AppData\\Local\\Programs\\Tesseract-OCR\\tesseract.exe"  # Kullandığımız mödüllerden olan tesseract'ın dosya konumunu (yine iki tane \ kullanarak) belirtmemiz gerekiyor.
+plaka_fotografi = cv2.imread(dosya_yolu)         # Opencv modülünü kullanarak dosya_yolu şeklinde kullanacağımız plakayı imread komutu ile fotoğraf olarak okutuyoruz.
+plaka = pytesseract.image_to_string(plaka_fotografi)           # Plaka fotoğrafı olarak okuttuğumuz plakayı tesseract modülünü kullanarak image to string komutu ile fotoğraftan harfler öbeğine çevirerek ceza yazarken kullanmak ize plaka değişkenine tanımlıyoruz.    
+
+def indirim(a):      # def ile ilk 15 gün içinde uygulanabilecek ½25 indirim için fonksiyon yapıldı, parantez içine tanımlayacağımız ceza fiyatlarını girerek kullanacağız. Parantez içine yazdığımızın ½25'ini kendisinden çıkararak uygular. (Örnek:  indirim(Appplakakullanmak) )
+    return a-(a*0.25)     #İşlemleri bitirebilmek geri döndürmek için return kullanıldı.
 
 def hizcezasi():
-    hizsiniri=int(input("Hız sınırını giriniz: "))
-    hiz=int(input("Hızı giriniz: "))
-    if (hizsiniri+(hizsiniri*0.10))>hiz :
+    hizsiniri=int(input("Hız sınırını giriniz: "))             # Kullanıcıdan hız sınırı bilgisi alabilmek için input, çalışabilmesi için de başına int() yazarak tamsayı şeklinde veri alınabilmesini sağladık.
+    hiz=int(input("Hızı giriniz: "))                   # Yakalandığı hızı kullanıp ceza aralığını hesaplayabilmek için int() içerisinde tamsayı olarak veri alıyoruz. 
+    if (hizsiniri+(hizsiniri*0.10))>hiz :             # Hızsınırının +%10'una kadar ceza tanımlanmadığı için < > işaretleri ile aralıklarını belirterek, alt satırlara indikçe yüzdelerde artış olacağından sırayla çalışabileceği için ilk +%10 ile başladım. Ve buna uygun açıklamayı print ile yazdırmayı hedefledim. 
         return print("Ceza uygulanmasını gerektirecek bir durum yoktur.")
-    elif (hizsiniri+(hizsiniri*0.10))<hiz<=(hizsiniri+(hizsiniri*0.30)): 
-        return print("51/2-a Ceza maddesi gereğince Hız sınırını %10 ile %30 arasında geçtiği için {} Plakalı araç sahibine 427₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse 320.25₺'ye indirim uygulanacaktır.".format(plaka))
-    elif (hizsiniri+(hizsiniri*0.30))<hiz<=(hizsiniri+(hizsiniri*0.50)):
+    elif (hizsiniri+(hizsiniri*0.10))<hiz<=(hizsiniri+(hizsiniri*0.30)):      # Elif ilk koşul sağlanmazsa eğer değilse anlamında farklı koşullarda kullandığımız komutu ½10 ile ½30 arasındaki hız cezasında < > bışında <=(Büyük ve eşittir) ile cezayı sınırlandırarak ilk hız cezasını uyguladım.
+        return print("51/2-a Ceza maddesi gereğince Hız sınırını %10 ile %30 arasında geçtiği için {} Plakalı araç sahibine 427₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse 320.25₺'ye indirim uygulanacaktır.".format(plaka))    # Üstteki koşul sağlandıktan sonra return komutu sayesinde print ile yazdıracağımız metin terminalde kullanılır. .format'tan sonra gelen parantez içindeki veriler öncesinde gelen {} Süslü parantezin konumuna atanır. 
+    elif (hizsiniri+(hizsiniri*0.30))<hiz<=(hizsiniri+(hizsiniri*0.50)):                                                                                                                                                                                                   # Sürekli değişebilecek plakalar için de .format komutu kullanıldı.
         return print("51/2-b Ceza maddesi gereğince Hız sınırını %30 ile %50 arasında geçtiği için {} Plakalı araç sahibine 888₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse 666₺'ye indirim uygulanacaktır.".format(plaka))
     elif (hizsiniri+(hizsiniri*0.50))<hiz:
         return print("51/2-c Ceza maddesi gereğince Hız sınırını %50’den fazla geçtiği için {} Plakalı araç sahibine 1823₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse 1367.25₺'ye indirim uygulanacaktır.".format(plaka))
 
-ceza = input("İşlenen cezayı giriniz: ")
+ceza = input("İşlenen cezayı giriniz: ") # Bu satır sayesinde yukarıda okuttuğumuz plakaya string şeklinde ceza yazabiliyoruz.
 
-Hurdayacikarilanaracinislemleriniyapmamak=427
+Hurdayacikarilanaracinislemleriniyapmamak=427                           # Bu satırlardaki değişkenler ileride ceza yazarken fiyatların girilmesinde ve %25 indirim için yapılan fonksiyonda kullanabilmek için tanımlanmıştır.
 Sattigiaraciilgilikurumlarabildirmemek=3340
 İhaledenalinanaraclardagereklibilgilerivermemek=427
 Tescilplakasizarackullanmak=1823
@@ -172,11 +174,11 @@ Belediyedenizinalinasartlardisindayolcutasimak=3674
 Belediyedenizinalınanbölgedisindayolcutasima=1823
 Belediyedenalinanizinbitmesineragmenyolcutasima=1823
 
-if  (ceza=="Hurdaya çıkarılan aracın işlemlerini yapmamak"):
-    print("20/1-a/1 Ceza maddesi gereğince hurdaya çıkarılan aracın işlemleri yapılmadığı için {} Plakalı araç sahibine {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indciim iygulanaiaksır.".format(plaka,Hurdayacikarilanaracinislemleriniyapmamak,indirim(Hurdayacikarilanaracinislemleriniyapmamak))) 
+if  (ceza=="Hurdaya çıkarılan aracın işlemlerini yapmamak"):    # inputtan aldığımız verileri ceza olarak kullanabilmemiz için == ile ikisini eşitledim. : ile girinti yaparak eğer eşitlediğimiz ceza doğru yazılırsa alt satırındaki print komutu çalışarak cezamız okuttuğumuz plaka,fiyat ve indirim ile birlikte terminalde yazdırlacaktır.
+    print("20/1-a/1 Ceza maddesi gereğince hurdaya çıkarılan aracın işlemleri yapılmadığı için {} Plakalı araç sahibine {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulancaktır.".format(plaka,Hurdayacikarilanaracinislemleriniyapmamak,indirim(Hurdayacikarilanaracinislemleriniyapmamak)))  #  {} Süslü parantez kullanarak .format'ın parantezindeki virgül ile ayrılan veriler sırasıyla süslü parantezin yerinde kullanıldığı için her cezada değişen fiyatlar ve ceza yazılacak plakalar farklı olacağı için .format kullandım.
 
 elif (ceza=="Sattığı aracı ilgili kurumlara bildirmemek"):
-    print("20/1-d Ceza maddesi gereğince satılan araç ilgili kurumlara bildirilmediği için {} Plakalı araç sahibine {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(plaka,Sattigiaraciilgilikurumlarabildirmemek,indirim(Sattigiaraciilgilikurumlarabildirmemek)))  
+    print("20/1-d Ceza maddesi gereğince satılan araç ilgili kurumlara bildirilmediği için {} Plakalı araç sahibine {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(plaka,Sattigiaraciilgilikurumlarabildirmemek,indirim(Sattigiaraciilgilikurumlarabildirmemek))) # Bunlardam sonra gelen satırlarda da aymı özellikler kullanıldığı için onlara açıklama yapmadım.
 
 elif (ceza=="İhaleden alınan araçlarda gerekli bilgileri vermemek"):
     print("20/1-d-8 Ceza maddesi gereğince ihaleden alınan araçlarda gerekli bilgiler verilmediği için {} Plakalı araç sahibine {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(plaka,İhaledenalinanaraclardagereklibilgilerivermemek,indirim(İhaledenalinanaraclardagereklibilgilerivermemek)))
@@ -329,7 +331,7 @@ elif (ceza=="Ticari araç kullanma sürelerine uymamak"):
     print("49/3 Ceza maddesi gereğince ticari araç kullanma sürelerine uymadığı için {} Plakalı araç sahibine {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(plaka,Ticariarackullanmasurelerineuymamak,indirim(Ticariarackullanmasurelerineuymamak)))
 
 elif (ceza=="Hız cezası"):
-    hizcezasi()
+    hizcezasi()               # Hız cezasını kullanabilmek için hizcezasi() yazarak fonksiyonu çağırmamız yeterli input ile veri alınan kısıma üstündeki satırda yazan "Hız cezası" yazıldığında burda fonksiyonu çağırdığımız için otomatik olarak dosyanını başındaki hız cezası fonksiyonunu çalıştıracaktır.
 
 elif (ceza=="Kavşaklara yaklaşırken hızını azaltmamak"):
     print("52/1-a Ceza maddesi gereğince Kavşaklara yaklaşırken hızını azaltmadığı için {} Plakalı araç sahibine {}₺ para cezası uygulanmıştır. İlk 15 gün içerisinde ödenirse {}₺'ye indirim uygulanacaktır.".format(plaka,Kavsaklarayaklasirkenhızınıyavaslatmamak,indirim(Kavsaklarayaklasirkenhızınıyavaslatmamak)))
